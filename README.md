@@ -82,7 +82,7 @@ chmod u+w /workspaces/wp-college/src/
 ### Docker did not install Wordpress core files
 
 When you git pull your repo on another laptop, you do not have WordPress core files (because they are ignored by .gitignore and never committed).
-But your Docker container is trying to serve WordPress from the volume ./:/var/www/html, and the mapped folder (./) is empty except for your custom files (e.g., theme/plugin).
+But your Docker container is trying to serve WordPress from the volume ./src:/var/www/html, and the mapped folder (./src) is empty except for your custom files (e.g., theme/plugin).
 
 Result:
 

@@ -46,3 +46,29 @@ docker run -d \
 
 If you are using ACF Pro or commercial plugins, consider documenting how to install them manually, rather than committing them (due to license issues).
 
+
+## Troubleshooting
+
+### EACCES: permission denied
+
+The error EACCES: permission denied indicates that you do not have the necessary permissions to move file to the src directory. To fix this, you can follow these steps:
+
+Check Permissions of the src Directory
+
+```bash
+ls -ld /workspaces/wp-college/src/
+```
+
+#### Option 1: Change Ownership
+
+If you have sudo access, run:
+
+```bash
+sudo chown -R $(whoami):$(whoami) /workspaces/wp-college/src/
+```
+
+#### Option 2: Modify Permissions
+
+```bash
+chmod u+w /workspaces/wp-college/src/
+```

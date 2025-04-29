@@ -72,3 +72,21 @@ sudo chown -R $(whoami):$(whoami) /workspaces/wp-college/src/
 ```bash
 chmod u+w /workspaces/wp-college/src/
 ```
+
+### Docker did not install Wordpress core files
+
+When you git pull your repo on another laptop, you do not have WordPress core files (because they are ignored by .gitignore and never committed).
+But your Docker container is trying to serve WordPress from the volume ./:/var/www/html, and the mapped folder (./) is empty except for your custom files (e.g., theme/plugin).
+
+Result:
+
+- /var/www/html inside the container is basically missing WordPress.
+- No /wp-admin/, /wp-includes/, etc. → WordPress can't run.
+
+#### ✅ Solution 2: Use a Local Script to Download WordPress
+
+run:
+
+```bash
+./setup.sh
+```

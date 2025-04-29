@@ -21,6 +21,12 @@ docker run -d \
   mariadb:11.7.2
 ```
 
+### Install Wordpress core files
+
+```bash
+./setup
+```
+
 ### Start the WordPress container
 
 ```bash
